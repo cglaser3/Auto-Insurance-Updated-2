@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Insurance Advisors</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="overlay">
+    <img src="assets/images/logo.png" alt="AI Insurance Advisors logo" class="logo" />
+    <div class="card">
+      <h1>Find Smarter Insurance Options, Instantly</h1>
+      <p class="subhead">Enter your ZIP code to start your free quote in seconds.</p>
+      <form id="zip-form" action="#">
+        <label for="zip" class="visually-hidden">ZIP Code</label>
+        <input type="text" id="zip" name="zip" maxlength="5" pattern="\d{5}" inputmode="numeric" placeholder="ZIP Code" required />
+        <p id="zip-error" class="error hidden">Please enter a valid 5-digit ZIP code.</p>
+        <button type="submit">Start Quote</button>
+      </form>
+      <p class="disclaimer">Your information is safe and encrypted.</p>
+    </div>
+  </div>
+
+  <div id="app" class="hidden"></div>
+  <div id="progress-container" class="hidden"><div id="progress"></div></div>
+
+  <footer>
+    <a href="#">Terms</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Contact</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
