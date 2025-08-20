@@ -245,7 +245,8 @@ function vehiclesStep() {
   const addBtn = document.getElementById('addVehicle');
   const list = document.getElementById('vehicleList');
   const nextBtn = document.getElementById('next');
-  addBtn.addEventListener('click', () => {
+  addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     let year, make, model, vin = '';
     if (!vinArea.classList.contains('hidden')) {
       vin = document.getElementById('vinInput').value.trim();
@@ -281,7 +282,8 @@ function vehiclesStep() {
     document.getElementById('modelSelect').innerHTML = '<option value="">Model</option>';
   });
 
-  nextBtn.addEventListener('click', () => {
+  nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     if (formData.vehicles.length === 0) return;
     nextStep();
   });
