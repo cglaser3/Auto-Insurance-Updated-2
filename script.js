@@ -210,13 +210,19 @@ function vehiclesStep() {
 
   function populateYears() {
     const yearSel = document.getElementById('yearSelect');
-    yearSel.innerHTML = '<option value="">Year</option>' + Object.keys(modelsData).map(y => `<option value="${y}">${y}</option>`).join('');
+    const yearOptions = Object.keys(modelsData)
+      .map(y => `<option value="${y}">${y}</option>`)
+      .join('');
+    yearSel.innerHTML = '<option value="">Year</option>' + yearOptions;
   }
 
   document.getElementById('yearSelect').addEventListener('change', (e) => {
     const year = e.target.value;
     const makeSel = document.getElementById('makeSelect');
-    makeSel.innerHTML = '<option value="">Make</option>' + Object.keys(modelsData[year] || {}).map(m => `<option value="${m}">${m}</option>`).join('');
+    const makeOptions = Object.keys(modelsData[year] || {})
+      .map(m => `<option value="${m}">${m}</option>`)
+      .join('');
+    makeSel.innerHTML = '<option value="">Make</option>' + makeOptions;
     document.getElementById('modelSelect').innerHTML = '<option value="">Model</option>';
   });
 
@@ -224,7 +230,11 @@ function vehiclesStep() {
     const year = document.getElementById('yearSelect').value;
     const make = e.target.value;
     const modelSel = document.getElementById('modelSelect');
-    modelSel.innerHTML = '<option value="">Model</option>' + (modelsData[year]?.[make] || []).map(m => `<option value="${m}">${m}</option>`).join('');
+    modelSel.innerHTML =
+      '<option value="">Model</option>' +
+      (modelsData[year]?.[make] || [])
+        .map(m => `<option value="${m}">${m}</option>`)
+        .join('');
   });
 
   document.getElementById('decodeVin').addEventListener('click', async () => {
