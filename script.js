@@ -177,7 +177,8 @@ function vehiclesStep() {
     </div>
     <button id="addVehicle">Add Vehicle</button>
     <div id="vehicleList"></div>
-    <button id="next" disabled>Next</button>
+    <p id="vehicleError" class="error hidden">Please add at least one vehicle to continue.</p>
+    <button id="next">Next</button>
   `);
 
   const chooseVin = document.getElementById('chooseVin');
@@ -245,7 +246,9 @@ function vehiclesStep() {
   const addBtn = document.getElementById('addVehicle');
   const list = document.getElementById('vehicleList');
   const nextBtn = document.getElementById('next');
-  addBtn.addEventListener('click', () => {
+  const vehicleError = document.getElementById('vehicleError');
+  addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     let year, make, model, vin = '';
     if (!vinArea.classList.contains('hidden')) {
       vin = document.getElementById('vinInput').value.trim();
@@ -271,7 +274,7 @@ function vehiclesStep() {
     preview.className = 'vehicle-preview';
     preview.textContent = `${year} ${make} ${model}`;
     list.appendChild(preview);
-    nextBtn.disabled = false;
+    vehicleError.classList.add('hidden');
     document.getElementById('vinInput').value = '';
     document.getElementById('vinYear').value = '';
     document.getElementById('vinMake').value = '';
@@ -281,8 +284,12 @@ function vehiclesStep() {
     document.getElementById('modelSelect').innerHTML = '<option value="">Model</option>';
   });
 
-  nextBtn.addEventListener('click', () => {
-    if (formData.vehicles.length === 0) return;
+  nextBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (formData.vehicles.length === 0) {
+      vehicleError.classList.remove('hidden');
+      return;
+    }
     nextStep();
   });
 }
