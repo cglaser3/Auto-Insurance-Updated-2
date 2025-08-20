@@ -1,0 +1,9 @@
+{
+  "2020": {
+    "Toyota": ["Camry", "Corolla"],
+    "Honda": ["Civic", "Accord"]
+  },
+  "2021": {
+    "Ford": ["F-150", "Fusion"]
+  }
+}
