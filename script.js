@@ -470,11 +470,26 @@ function currentlyInsuredStep() {
 function currentCompanyStep() {
   renderCard(`
     <h2>Current company?</h2>
-    <div class="grid">
-      <button class="option-btn" data-val="Geico">Geico</button>
-      <button class="option-btn" data-val="Progressive">Progressive</button>
-      <button class="option-btn" data-val="Allstate">Allstate</button>
-      <button class="option-btn" data-val="Other">Other</button>
+    <div class="grid carrier-grid">
+      <button type="button" class="option-btn carrier-btn" data-val="Allstate">
+        <img src="assets/images/Allstate%20Logo.png" alt="Allstate" />
+        <span>Allstate</span>
+      </button>
+      <button type="button" class="option-btn carrier-btn" data-val="State Farm">
+        <img src="assets/images/State%20Farm%20Logo.png" alt="State Farm" />
+        <span>State Farm</span>
+      </button>
+      <button type="button" class="option-btn carrier-btn" data-val="Progressive">
+        <img src="assets/images/Progressive%20Logo.png" alt="Progressive" />
+        <span>Progressive</span>
+      </button>
+      <button type="button" class="option-btn carrier-btn" data-val="Geico">
+        <img src="assets/images/Geico%20Logo.png" alt="Geico" />
+        <span>Geico</span>
+      </button>
+      <button type="button" class="option-btn carrier-btn" data-val="Other">
+        <span>Other</span>
+      </button>
     </div>
   `);
   app.querySelectorAll('.option-btn').forEach(btn => {
